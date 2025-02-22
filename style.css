@@ -24,7 +24,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 30%;
+    width: auto;
 }
 
 .cim {
@@ -51,7 +51,6 @@ body {
 
 .nev {
     display: flex;
-    justify-content: space-between;
     width: 100%;
     margin-top: 1rem;
     gap: 0.8rem;
@@ -83,6 +82,7 @@ body {
     padding: 0.25rem;
     font-size: 0.75rem;
     font-weight: lighter;
+    display: flex;
 }
 
 #kartyaszam {
@@ -92,7 +92,6 @@ body {
 
 #cvcndatum {
     display: flex;
-    justify-content: space-between;
     width: 100%;
     margin-top: 1rem;
     gap: 0.8rem;
