@@ -8,11 +8,11 @@ const lejaratiDatum = document.getElementById('lejarati_datum');
 const cvc = document.getElementById('cvc');
 
 document.addEventListener('DOMContentLoaded', () => {
-    csaladNev.value = getCookie('lastName');
-    keresztNev.value = getCookie('firstName');
-    kartyaSzam.value = getCookie('cardNumber');
-    lejaratiDatum.value = getCookie('expDate');
-    cvc.value = getCookie('cvc');
+    csaladNev.value = getCookie('lastName') || "";
+    keresztNev.value = getCookie('firstName') || "";
+    kartyaSzam.value = getCookie('cardNumber') || "";
+    lejaratiDatum.value = getCookie('expDate') || "";
+    cvc.value = getCookie('cvc') || "";
 })
 
 gomb.addEventListener('click', () => {
@@ -27,8 +27,7 @@ gomb.addEventListener('click', () => {
 });
 
 kartyaSzam.addEventListener('input', (event) => {
-    let value = event.target.value.replace(/\D/g, ""); // Remove non-numeric characters
-    value = value.slice(0, 16);
+    let value = event.target.value.replace(/\D/g, "").slice(0, 16); // Remove non-numeric characters
     let formattedValue = value.replace(/(\d{4})/g, "$1-").trim(); // Add dashes every 4 digits
     formattedValue = formattedValue.replace(/-$/, ""); // Remove trailing dash
 
@@ -36,13 +35,11 @@ kartyaSzam.addEventListener('input', (event) => {
 });
 
 cvc.addEventListener('input', (event) => {
-    value = event.target.value.slice(0, 3);
-    event.target.value = value;
+    event.target.value = event.target.value.slice(0, 3);
 });
 
 lejaratiDatum.addEventListener('input', (event) => {
-    let value = event.target.value.replace(/\D/g, ""); // Remove non-numeric characters
-    value = value.slice(0, 4); // Limit to 4 digits
+    let value = event.target.value.replace(/\D/g, "").slice(0, 4); // Remove non-numeric characters , Limit to 4 digits
 
     // Format as MM/YY
     if (value.length >= 3) {
