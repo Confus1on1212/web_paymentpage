@@ -8,12 +8,29 @@ const lejaratiDatum = document.getElementById('lejarati_datum');
 const cvc = document.getElementById('cvc');
 
 document.addEventListener('DOMContentLoaded', () => {
+    cookieTorlo.src = "imgs/trashcan1.svg";
     csaladNev.value = getCookie('lastName') || "";
     keresztNev.value = getCookie('firstName') || "";
     kartyaSzam.value = getCookie('cardNumber') || "";
     lejaratiDatum.value = getCookie('expDate') || "";
     cvc.value = getCookie('cvc') || "";
+});
+
+cookieTorlo.addEventListener('click', () => {
+    setCookie("cardNumber", '', -1);
+    setCookie("lastName", '', -1);
+    setCookie("firstName", '', -1);
+    setCookie("expDate", '', -1);
+    setCookie("cvc", '', -1);
 })
+
+cookieTorlo.addEventListener('pointerenter', () => {
+    cookieTorlo.src = "imgs/trashcan2.svg";
+});
+
+cookieTorlo.addEventListener('pointerleave', () => {
+    cookieTorlo.src = "imgs/trashcan1.svg";
+});
 
 gomb.addEventListener('click', () => {
     checkDate();
